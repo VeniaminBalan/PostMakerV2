@@ -1,0 +1,23 @@
+﻿@using PostMakerV2.Models
+@model CreatePostViewModel
+
+@{
+    ViewData["Title"] = "Create Post";
+}
+
+@using (Html.BeginForm("CreatePost", "Home", FormMethod.Post))
+{
+
+    <br />
+    @Html.LabelFor(x => x.Content)
+    <br />
+    @Html.TextAreaFor(x => x.Content, new { rows = 5, cols = 23 })
+
+    <br />
+    <br />
+    <input type="submit" value="Create" />
+    <br />
+    <br />
+    @Html.ValidationSummary()
+
+}

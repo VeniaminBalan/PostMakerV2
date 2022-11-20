@@ -1,0 +1,31 @@
+﻿@using PostMakerV2.Models
+@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+<div class="login-container">
+    <br />
+    @Html.LabelFor(x => x.Email)
+    <br />
+    @Html.EditorFor(x => x.Email)
+
+    <br />
+    @Html.LabelFor(x => x.Password)
+    <br />
+    @Html.PasswordFor(x => x.Password)
+
+    <br />
+    <br />
+    <input type="submit" value="Login" />
+    <br />
+    <br />
+    @Html.ValidationSummary()
+</div>
+
+}
+
