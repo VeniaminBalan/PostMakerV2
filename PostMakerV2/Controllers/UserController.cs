@@ -20,7 +20,6 @@ namespace PostMakerV2.Controllers
 
         }
 
-
         [HttpGet]
         public IActionResult Login()
         {
@@ -97,6 +96,13 @@ namespace PostMakerV2.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+
+            return View();
+        }
+
+        
+        public IActionResult UserMenu()
+        {
 
             return View();
         }

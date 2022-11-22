@@ -1,0 +1,16 @@
+﻿@using PostMakerV2.Models;
+@using PostMakerV2.Controllers;
+
+@{
+    ViewData["Title"] = "User Menu"; 
+}
+
+<div class="container">
+    <div>
+        <b>Email: </b>@UserController.cookie.Value
+    </div>
+    <div>
+        <b>Name: </b>@UserController.cookie.Name
+    </div>
+    
+</div>
