@@ -13,6 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//if(Environment.EnvironmentName.ToLower().StartsWith("test"))
+
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 

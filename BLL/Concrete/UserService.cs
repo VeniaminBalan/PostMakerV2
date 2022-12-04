@@ -73,5 +73,20 @@ namespace BLL.Concrete
         {
             return _userRepository.IsNameUsed(user.Name);
         }
+
+        public IList<PostDto> GetUserPosts(string Name)
+        {
+            var posts = _userRepository.GetUserPosts(Name);
+
+            var dtos = posts.Select(x => new PostDto()
+            {
+                Author = x.Author,
+                Content = x.Content,
+                Created = x.Created,
+                Id = x.Id
+            }).ToList();
+
+            return dtos;
+        }
     }
 }

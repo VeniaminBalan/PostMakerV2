@@ -1,6 +1,8 @@
 ﻿@using PostMakerV2.Models;
 @using PostMakerV2.Controllers;
 
+@model List<PostViewModel>
+
 @{
     ViewData["Title"] = "User Menu"; 
 }
@@ -11,6 +13,31 @@
     </div>
     <div>
         <b>Name: </b>@UserController.cookie.Name
+    </div>
+
+    <div>
+        <div class="container">
+            <a href="/home/CreatePost" class="text-center">
+                <h5>Create your Post</h5>
+            </a>
+                @if (Model.Any())
+                {
+                    <h2 class="text-center"> Your Posts </h2>
+                    foreach (var post in Model)
+                    {
+                        <div class="post-container">
+                            <div><b>@post.Author </b>posted: </div>
+                            <div class="post-content"> @Html.Raw(post.Content) </div>
+                            <div class="text-right">@post.Created</div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <h5>No posts in the last 24 hours to show</h5>
+                }
+        </div>
+
     </div>
     
 </div>

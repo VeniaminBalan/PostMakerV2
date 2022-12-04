@@ -11,5 +11,6 @@ namespace DAL.Abstract
         User Login(User user);
         bool IsEmailUsed(string Email);
         bool IsNameUsed(string user);
+        IList<Post> GetUserPosts(string Name);
     }
 }

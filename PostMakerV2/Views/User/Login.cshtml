@@ -9,11 +9,13 @@
 @using (Html.BeginForm("Login", "User", FormMethod.Post))
 {
 <div class="login-container">
+    <div class="text-center">
+        <H2>Login</H2>
+    </div>
     <br />
     @Html.LabelFor(x => x.Email)
     <br />
     @Html.EditorFor(x => x.Email)
-
     <br />
     @Html.LabelFor(x => x.Password)
     <br />
@@ -25,6 +27,12 @@
     <br />
     <br />
     @Html.ValidationSummary()
+
+    <div>
+        Create account 
+        <a href="/User/Signup"> Signup<a/>
+
+    </div>
 </div>
 
 }

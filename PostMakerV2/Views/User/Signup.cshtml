@@ -8,6 +8,10 @@
 @using (Html.BeginForm("Signup", "User", FormMethod.Post))
 {
 <div class="login-container">
+
+        <div class="text-center">
+            <H2>Signup</H2>
+        </div>
     <br />
     @Html.LabelFor(x => x.Email)
     <br />
@@ -29,8 +33,14 @@
     <br />
     <input type="submit" value="Signup" />
     <br />
-    <br />
     @Html.ValidationSummary()
+    <br />
+
+    <div>
+        Have an account?
+        <a href="/User/Login"> Login<a/>
+
+    </div>
 </div>
 
 }

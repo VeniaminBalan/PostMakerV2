@@ -12,10 +12,23 @@ namespace DAL.Concrete
 {
     public class UserRepository : IUserRepository
     {
+        public IList<Post> GetUserPosts(string Name)
+        {
+            List<Post> posts;
+            string sql = $"SELECT * FROM Post WHERE Created >= DATEADD(day, -1, GETDATE()) AND Author='{Name}' ORDER BY Created DESC";
+
+            using (var conection = new SqlConnection(DatabaseOptions.DatabaseConnectionString))
+            {
+                posts = conection.Query<Post>(sql).ToList();
+            }
+
+            return posts;
+        }
+
         public bool IsEmailUsed(string Email)
         {
             List<User> users;
-            string sql = $"SELECT * FROM User_Account WHERE Email='{Email}'";
+            string sql = $"SELECT * FROM User_Account WHERE Author='{Email}'";
 
             using (var conection = new SqlConnection(DatabaseOptions.DatabaseConnectionString))
             {

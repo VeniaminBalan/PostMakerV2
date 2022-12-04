@@ -104,8 +104,32 @@ namespace PostMakerV2.Controllers
         public IActionResult UserMenu()
         {
 
-            return View();
+            var dtos = _userService.GetUserPosts(UserController.cookie.Name);
+            var posts = dtos.Select(x => new PostViewModel()
+            {
+                Author = x.Author,
+                Content = x.Content,
+                Created = x.Created.ToString()
+            }).ToList();
+
+            return View(posts);
         }
+
+        //public IActionResult Component()
+        //{
+        //    var dtos = _postService.GetPosts();
+        //    var posts = dtos.Select(x => new PostViewModel()
+        //    {
+        //        Author = x.Author,
+        //        Content = x.Content,
+        //        Created = x.Created.ToString()
+        //    }).ToList();
+
+        //    posts = posts.FindAll(x => x.Author == UserController.cookie.Name);
+
+
+        //    return View(posts);
+        //}
 
     }
 }

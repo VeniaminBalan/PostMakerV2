@@ -11,5 +11,6 @@ namespace BLL.Abstract
         bool IsEmailUsed(UserDto user);
         bool IsValidEmail(string email);
         bool IsNameUsed(UserDto user);
+        IList<PostDto> GetUserPosts(string Name);
     }
 }
