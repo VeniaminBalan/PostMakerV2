@@ -1,5 +1,4 @@
-﻿@using PostMakerV2.Controllers;
-
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,39 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PostMaker</a>
-                <ul class="navbar-nav mr-auto">
-                    @if (UserController.cookie != null)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="User" asp-action="UserMenu">@UserController.cookie.Name</a>
-                        </li>
-                         <li class="nav-item">
-                             <a class="nav-link" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
-                          </li>
-                            
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                             <a class="nav-link" asp-area="" asp-controller="User" asp-action="Signup">Signup</a>
-                        </li>
-                        <li class="nav-item">
-                             <a class="nav-link" asp-area="" asp-controller="User" asp-action="Login">Login</a>
-                        </li>
-                            
-                    }
-                </ul>
-
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </nav>
+        @Html.Partial("_NavBar");
     </header>
     <div class="container">
         <main role="main" class="pb-3">
